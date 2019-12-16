@@ -1,0 +1,8 @@
+name: Print “Hello world”
+description: Prints “Hello world”
+
+# inputs:
+
+# outputs:
+
+runs: echo 'Hello world'
