@@ -38,9 +38,9 @@ jobs:
           while IFS= read -r file
           do
             echo $file
-            if [[ $file != backend/* ]]; then
+            if [[ $file == backend/* ]]; then
               echo "::set-output name=run_tests_be::true"
-            elif [[ $file != frontend/* ]]; then
+            elif [[ $file == frontend/* ]]; then
               echo "::set-output name=run_tests_fe::true"
             fi
           done < files.txt
