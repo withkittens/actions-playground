@@ -45,14 +45,18 @@ jobs:
             fi
           done < files.txt
 
-  testing:
+  tests_frontend:
     needs: check
     runs-on: ubuntu-latest
+    if: needs.check.outputs.run_tests_fe == 'true'
     steps:
-      - name: Run Frontend tests
-        if: needs.check.outputs.run_tests_fe == 'true'
+      - name: Run Frontend tests        
         run: echo Run Frontend tests
-      
-      - name: Run Backend tests
-        if: needs.check.outputs.run_tests_be == 'true'
+
+  tests_backend:
+    needs: check
+    runs-on: ubuntu-latest
+    if: needs.check.outputs.run_tests_be == 'true'
+    steps:
+      - name: Run Backend tests        
         run: echo Run Backend tests
